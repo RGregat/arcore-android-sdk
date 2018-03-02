@@ -330,14 +330,21 @@ public class PlaneRenderer {
 
     // Planes are drawn with additive blending, masked by the alpha channel for occlusion.
 
+    ShaderUtil.checkGLError(TAG, "Before setting up");
+
     // Start by clearing the alpha channel of the color buffer to 1.0.
     GLES20.glClearColor(1, 1, 1, 1);
     GLES20.glColorMask(false, false, false, true);
     GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+
+    ShaderUtil.checkGLError(TAG, "clear");
+
     GLES20.glColorMask(true, true, true, true);
 
     // Disable depth write.
     GLES20.glDepthMask(false);
+
+    ShaderUtil.checkGLError(TAG, "masks");
 
     // Additive blending, masked by alpha channel, clearing alpha channel.
     GLES20.glEnable(GLES20.GL_BLEND);
@@ -345,16 +352,25 @@ public class PlaneRenderer {
         GLES20.GL_DST_ALPHA, GLES20.GL_ONE, // RGB (src, dest)
         GLES20.GL_ZERO, GLES20.GL_ONE_MINUS_SRC_ALPHA); // ALPHA (src, dest)
 
+    ShaderUtil.checkGLError(TAG, "blend");
+
     // Set up the shader.
     GLES20.glUseProgram(planeProgram);
+
+    ShaderUtil.checkGLError(TAG, "program");
+
 
     // Attach the texture.
     GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
     GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
     GLES20.glUniform1i(textureUniform, 0);
 
+    ShaderUtil.checkGLError(TAG, "texture");
+
     // Shared fragment uniforms.
     GLES20.glUniform4fv(gridControlUniform, 1, GRID_CONTROL, 0);
+
+    ShaderUtil.checkGLError(TAG, "grid");
 
     // Enable vertex arrays
     GLES20.glEnableVertexAttribArray(planeXZPositionAlphaAttribute);
