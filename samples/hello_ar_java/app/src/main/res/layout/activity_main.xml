@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
    Copyright 2016 Google Inc.
 
@@ -13,16 +14,89 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.google.ar.core.examples.java.helloar.HelloArActivity">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      android:gravity="bottom"
+      android:text="" />
+  <Button
+      android:id="@+id/start_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      android:text="@string/start_ar"
+      android:enabled="false"/>
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      android:gravity="bottom"
+      android:text="@string/debug_info" />
+  <GridLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="12dp"
+      android:layout_marginLeft="12dp"
+      android:layout_marginRight="12dp"
+      android:columnCount="2"
+      android:useDefaultMargins="true">
+    <TextView
+        android:layout_gravity="right"
+        android:text="@string/total_ca_calls" />
+    <TextView
+        android:id="@+id/total_calls"
+        android:layout_gravity="left"
+        android:text="\?"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:layout_gravity="right"
+        android:text="@string/total_ca_time" />
+    <TextView
+        android:id="@+id/total_latency"
+        android:layout_gravity="left"
+        android:text="\?"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:layout_gravity="right"
+        android:text="@string/last_availability" />
+    <TextView
+        android:id="@+id/last_availability"
+        android:layout_gravity="left"
+        android:text="\?"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:layout_gravity="right"
+        android:text="@string/is_transient" />
+    <TextView
+        android:id="@+id/is_transient"
+        android:layout_gravity="left"
+        android:text="\?"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:layout_gravity="right"
+        android:text="@string/is_supported" />
+    <TextView
+        android:id="@+id/is_supported"
+        android:layout_gravity="left"
+        android:text="\?"
+        tools:ignore="HardcodedText" />
 
-  <android.opengl.GLSurfaceView
-      android:id="@+id/surfaceview"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:layout_gravity="top"/>
-
-</RelativeLayout>
+  </GridLayout>
+</LinearLayout>

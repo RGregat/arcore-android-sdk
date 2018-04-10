@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
    Copyright 2016 Google Inc.
 
@@ -14,13 +13,16 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<resources>
-  <string name="app_name">HelloAR Optional</string>
-  <string name="start_ar">Start AR!</string>
-  <string name="debug_info">Deubug Info:</string>
-  <string name="last_availability">last Availability:</string>
-  <string name="is_transient">isTransient() =</string>
-  <string name="is_supported">isSupported() =</string>
-  <string name="total_ca_calls">checkAvailability() calls:</string>
-  <string name="total_ca_time">total latency:</string>
-</resources>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.inio.ar.core.examples.java.helloaroptional.ArActivity">
+
+  <android.opengl.GLSurfaceView
+      android:id="@+id/surfaceview"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_gravity="top"/>
+
+</RelativeLayout>
