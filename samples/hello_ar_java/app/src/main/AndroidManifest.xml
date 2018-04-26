@@ -47,10 +47,6 @@
         android:exported="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:screenOrientation="locked">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
     </activity>
     <!-- This tag indicates that this application can use ARCore but does not require it. -->
     <meta-data android:name="com.google.ar.core" android:value="optional" />
